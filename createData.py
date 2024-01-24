@@ -17,10 +17,10 @@ def generate_arrays(arr_size, num_arrays, integer_range):
 def get_execution_stats(execution_times):
     average = numpy.average(execution_times)
     median = numpy.median(execution_times)
-    std_deviation = numpy.std(execution_times)
     max_time = max(execution_times)
     min_time = min(execution_times)
-    return average, median, std_deviation, max_time, min_time
+    stddev = numpy.std(execution_times)
+    return average, median, max_time, min_time, stddev
 
 
 

@@ -41,9 +41,13 @@ def algorithm_analysis(arrays):
     return execution_times
 
 #graphing the median execution time vs array size for merge sort
-def plot_execution_times(array_sizes, num_arrays, integer_range):
+def plot_execution_times(array_sizes, num_arrays, integer_range,plot_type):
     median_execution_times = []
     average_execution_times = []
+    max_execution_times = []
+    min_execution_times = []
+    stddev_execution_times = []
+
     for size in array_sizes:
         #generate arrays
         test_data = generate_arrays(size, num_arrays, integer_range)
@@ -59,29 +63,36 @@ def plot_execution_times(array_sizes, num_arrays, integer_range):
         average_execution_time = get_execution_stats(execution_times)[0]
         average_execution_times.append(average_execution_time)
 
-    #plot graph of median execution time vs array size
-    plt.figure(figsize=(10, 6))
-    plt.plot(array_sizes, median_execution_times, marker='o')
-    plt.xlabel('Array Size')
-    plt.ylabel('Median Execution Time (seconds)')
-    plt.title('MergeSort Median Execution Time Analysis')
-    plt.show()
+        #get max/min execution time for each array size
+        max_execution_times.append(get_execution_stats(execution_times)[2])
+        min_execution_times.append(get_execution_stats(execution_times)[3])
 
-    #plot graph of average execution time vs array size
+        #get standard deviation of execution times for each array size
+        stddev_execution_times.append(get_execution_stats(execution_times)[4])
+ 
+    # plot graph of execution times vs array size
     plt.figure(figsize=(10, 6))
-    plt.plot(array_sizes, average_execution_times, marker='o')
-    plt.xlabel('Array Size')
-    plt.ylabel('Average Execution Time (seconds)')
-    plt.title('MergeSort Average Execution Time Analysis')
-    plt.show()
 
+    if plot_type == "Median":
+        plt.errorbar(array_sizes, median_execution_times, yerr=stddev_execution_times, fmt='o-', label='Median')
+        plt.title("Merge Sort Median Execution Times")
+        plt.xlabel("Array Size")
+        plt.ylabel("Execution Time (s)")
+        plt.show()
+
+    elif plot_type == "Average":
+        plt.errorbar(array_sizes, average_execution_times,yerr=stddev_execution_times, fmt='o-', label='Average')
+        plt.title("Merge Sort Average Execution Times")
+        plt.xlabel("Array Size")
+        plt.ylabel("Execution Time (s)")
+        plt.show()
 
 # [10000, 40000, 70000, 100000, 130000, 160000, 190000, 220000]
 
 # Call the function to plot the graph
-    #in this case we are plotting median execution times for 10 arrays of sizes 10000, 20000, 30000, 40000, 50000, 60000, 70000, 80000. 
+    #in this case we are plotting median and average execution times for 10 arrays of sizes 10000, 20000, 30000, 40000, 50000, 60000, 70000, 80000. 
     #these arrays are filled with random integers from 0 to 1000
-plot_execution_times([10000, 20000, 30000, 40000, 50000, 60000, 70000, 80000], 10, 1000)
+# plot_execution_times([10000, 20000, 30000, 40000, 50000, 60000, 70000, 80000], 10, 1000)
     
 
 

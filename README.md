@@ -4,7 +4,7 @@ An empirical analysis of common sorting algorithms
 
 
 
-References:
+# References:
 Khanna, M. (2023, November 28). Merge sort - data structure and algorithms tutorials. GeeksforGeeks. 
   https://www.geeksforgeeks.org/merge-sort/ 
 
@@ -16,3 +16,6 @@ GeeksforGeeks. (2023, April 26). Timeit in python with examples. GeeksforGeeks.
 
 Visualization with python. Matplotlib. (n.d.).
     https://matplotlib.org/ 
+
+Chat with us on OpenAI. (n.d.). OpenAI.
+https://chat.openai.com/share/ed40b149-01f8-42b1-adac-db726e19463f
