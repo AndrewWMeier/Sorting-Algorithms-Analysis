@@ -1,6 +1,10 @@
 from createData import generate_arrays
+from createData import get_execution_stats
 import timeit
+import matplotlib.pyplot as plt
+#this file does the main analysis of merge sort
 
+#merge sort algorithm
 def mergeSort(arr):
     if len(arr) > 1:
         mid = len(arr)//2
@@ -36,9 +40,51 @@ def algorithm_analysis(arrays):
         execution_times.append(timeit.default_timer() - start_time)
     return execution_times
 
-#test
-arrays = generate_arrays(10, 10, 1000)
-print(algorithm_analysis(arrays))
+#graphing the median execution time vs array size for merge sort
+def plot_execution_times(array_sizes, num_arrays, integer_range):
+    median_execution_times = []
+    average_execution_times = []
+    for size in array_sizes:
+        #generate arrays
+        test_data = generate_arrays(size, num_arrays, integer_range)
+
+        #get execution time of mergesort for each array
+        execution_times = algorithm_analysis(test_data)
+
+        #get median execution time for each array size
+        median_execution_time = get_execution_stats(execution_times)[1]
+        median_execution_times.append(median_execution_time)
+
+        #get average execution time for each array size
+        average_execution_time = get_execution_stats(execution_times)[0]
+        average_execution_times.append(average_execution_time)
+
+    #plot graph of median execution time vs array size
+    plt.figure(figsize=(10, 6))
+    plt.plot(array_sizes, median_execution_times, marker='o')
+    plt.xlabel('Array Size')
+    plt.ylabel('Median Execution Time (seconds)')
+    plt.title('MergeSort Median Execution Time Analysis')
+    plt.show()
+
+    #plot graph of average execution time vs array size
+    plt.figure(figsize=(10, 6))
+    plt.plot(array_sizes, average_execution_times, marker='o')
+    plt.xlabel('Array Size')
+    plt.ylabel('Average Execution Time (seconds)')
+    plt.title('MergeSort Average Execution Time Analysis')
+    plt.show()
+
+
+# [10000, 40000, 70000, 100000, 130000, 160000, 190000, 220000]
+
+# Call the function to plot the graph
+    #in this case we are plotting median execution times for 10 arrays of sizes 10000, 20000, 30000, 40000, 50000, 60000, 70000, 80000. 
+    #these arrays are filled with random integers from 0 to 1000
+plot_execution_times([10000, 20000, 30000, 40000, 50000, 60000, 70000, 80000], 10, 1000)
+    
+
+
 
 
 
