@@ -22,6 +22,10 @@ def get_execution_stats(execution_times):
     stddev = numpy.std(execution_times)
     return average, median, max_time, min_time, stddev
 
+#get average number of comparisons for each array size
+def get_avg_comparisons(comparisons_list):
+    return numpy.average(comparisons_list)
+    
 
 
 
