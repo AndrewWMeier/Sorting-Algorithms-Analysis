@@ -10,6 +10,7 @@ pip install matplotlib
 
 ### 2. Run the program
 run the file interface.py this loads up the user interface to decide what to plot. This will bring up a screen like the following: 
+![interfaceimg](https://github.com/AndrewWMeier/Sorting-Algorithms-Analysis/assets/123119277/14d410ba-1dbb-4a4c-a058-38225be11b34)
 
 
 
