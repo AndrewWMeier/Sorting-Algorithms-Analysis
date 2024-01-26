@@ -1,5 +1,13 @@
 # Sorting-Algorithms-Analysis
-An empirical analysis of the merge sort algorithm.
+A simple Tkinter interface to help with the empirical analysis of the merge sort algorithm. Here are some example plots made with the interface:
+
+
+![image](https://github.com/AndrewWMeier/Sorting-Algorithms-Analysis/assets/123119277/fcfac86e-4076-4931-97a4-f5ff28c2dbf7)
+
+![image](https://github.com/AndrewWMeier/Sorting-Algorithms-Analysis/assets/123119277/06f77594-ca91-4f14-ad17-bdaf34b64e2f)
+
+![image](https://github.com/AndrewWMeier/Sorting-Algorithms-Analysis/assets/123119277/b72de785-7ad2-4d8f-b7d8-a63c0c65ac66)
+
 
 # How to use
 ### 1. Install Dependencies
@@ -27,10 +35,6 @@ run the file interface.py this loads up the user interface to decide what to plo
   - *Median:* The median time to sort the arrays vs. the array size.
   - *Comparisons:* The average number of comparisons made during sorting vs. the array size.
   - *Max/Min:* The maximum and minimum time to sort at each array size.
-
-
-
-
 
 # References:
 Khanna, M. (2023, November 28). Merge sort - data structure and algorithms tutorials. GeeksforGeeks. 
